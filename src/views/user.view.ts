@@ -2,6 +2,10 @@ import { UserModel } from "../models/user.model";
 
 /* =========================
    VIEW (SSR)
+   Tugas:
+    1. Letakkan di file khusus, dalam folder yang sesuai
+    2. Build Tailwind ke style.css, pastikan path benar.
+    3. Import UserModel
 ========================= */
 
 export const userView = (users: UserModel[]) => `
@@ -23,12 +27,15 @@ export const userView = (users: UserModel[]) => `
   <form method="POST" action="/create" class="mb-6 flex gap-2">
     <input name="name" placeholder="Name" class="border p-2 rounded w-full"/>
     <input name="role" placeholder="Role" class="border p-2 rounded w-full"/>
-    <button class="bg-blue-500 text-white px-4 rounded">Add</button>
+    <button class="bg-blue-500 text-white px-4 rounded">
+      Add
+    </button>
   </form>
 
   <div class="grid gap-4">
     ${users.map(user => `
       <div class="bg-white shadow rounded p-4 flex justify-between items-center">
+
         <div>
           <p class="font-semibold">${user.getDisplayName()}</p>
         </div>

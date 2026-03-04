@@ -7,9 +7,8 @@ export const userRoutes = new Elysia()
 
   .get("/", () => {
     const users = userService.getAll();
-    // return fungsi `htmlResponse` berisi parameter fungsi `userView` berisi parameter `users`
+    return htmlResponse(userView(users));
   })
-
 
   .post("/create", async ({ body }) => {
     const data = body as any;
@@ -19,5 +18,5 @@ export const userRoutes = new Elysia()
 
   .post("/delete/:id", ({ params }) => {
     userService.delete(Number(params.id));
-    // jalankan return redirect ke root 
+    return redirect("/");
   });
